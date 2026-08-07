@@ -24,19 +24,27 @@ export default function App() {
   const visibleProducts = filterEngine(PRODUCTS, filters, sortOrder);
 
   return (
-    <div className="app-layout">
-      <FilterSidebar filters={filters} onFiltersChange={handleFiltersChange} />
-      <main className="product-section">
-        <div className="product-section-header">
-          <h2>Products ({visibleProducts.length})</h2>
-          <SortDropdown value={sortOrder} onChange={setSortOrder} />
-        </div>
-        {visibleProducts.length > 0 ? (
-          <ProductGrid products={visibleProducts} />
-        ) : (
-          <EmptyState onReset={resetFilters} />
-        )}
-      </main>
-    </div>
+    <>
+      <header className="app-header">
+        <span>🛍️</span>
+        <h1>MarketPlace</h1>
+      </header>
+      <div className="app-layout">
+        <FilterSidebar filters={filters} onFiltersChange={handleFiltersChange} />
+        <main className="product-section">
+          <div className="product-section-header">
+            <h2>
+              <span>{visibleProducts.length}</span> Products found
+            </h2>
+            <SortDropdown value={sortOrder} onChange={setSortOrder} />
+          </div>
+          {visibleProducts.length > 0 ? (
+            <ProductGrid products={visibleProducts} />
+          ) : (
+            <EmptyState onReset={resetFilters} />
+          )}
+        </main>
+      </div>
+    </>
   );
 }
