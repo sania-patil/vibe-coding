@@ -22,8 +22,8 @@ export default function PriceRangeSlider({ min, max, value, onChange }: Props) {
     <div className="filter-group">
       <h3>Price Range</h3>
       <div className="price-labels">
-        <span>${lo.toFixed(0)}</span>
-        <span>${hi.toFixed(0)}</span>
+        <span>₹{lo.toLocaleString('en-IN')}</span>
+        <span>₹{hi.toLocaleString('en-IN')}</span>
       </div>
       <div className="price-slider-track">
         <input

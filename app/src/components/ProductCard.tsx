@@ -36,7 +36,7 @@ export default function ProductCard({ product }: Props) {
         </span>
         <p className="product-name">{product.name}</p>
         <div className="product-footer">
-          <p className="product-price">${product.price.toFixed(2)}</p>
+          <p className="product-price">₹{product.price.toLocaleString('en-IN')}</p>
           <p className="product-rating">
             <StarRating rating={product.rating} />
             <span className="rating-value"> {product.rating}</span>
